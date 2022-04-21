@@ -19,24 +19,42 @@ async function register(req, res) {
             success: false,
             message: "userName is required",
         });
+        return;
     }
     if (!email) {
         res.status(400).send({
             success: false,
             message: "mail is required for otp",
         });
+        return;
     }
     if (!password) {
         res.status(400).send({
             success: false,
             message: "password is required",
         });
+        return;
     }
     if (!name) {
         res.status(400).send({
             success: false,
             message: "Name is required",
         });
+        return;
+    }
+    if (!accountType) {
+        res.status(400).send({
+            success: false,
+            message: "account Type is required",
+        });
+        return;
+    }
+    if (!bankName) {
+        res.status(400).send({
+            success: false,
+            message: "bank Name is required",
+        });
+        return;
     }
     const otp = Math.floor(100000 + Math.random() * 900000);
     // console.log(otp);

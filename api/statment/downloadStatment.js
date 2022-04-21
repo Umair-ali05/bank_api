@@ -9,8 +9,8 @@ async function downloadStatment(req, res) {
         isVerified: true
     }).exec();
     const arr= [];
-    function newArr(accountNo, amount , type, purpose , time){
-    this.accountNo = accountNo;
+    function newArr(receiverAccountDetails, amount , type, purpose , time){
+    this.receiverAccountDetails = receiverAccountDetails;
     this.amount = amount;
     this.type = type;
     this.purpose = purpose;
@@ -18,7 +18,7 @@ async function downloadStatment(req, res) {
 }
     for (let data in statment) {
         {
-            arr.push(new newArr(statment[data].reciverAccountNo,statment[data].amount,statment[data].type,statment[data].purpose , statment[data].time));
+            arr.push(new newArr(statment[data].receiverAccountDetails,statment[data].amount,statment[data].type,statment[data].purpose , statment[data].time));
         }
     }
     if (statment != '') {
